@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="blockBasher.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Basher</title>
+</head>
+<body>
+    <div class="entire-screen">
+        <div id="entireScreen" class="screen-cover hide"></div>
+        <div class="main-container">
+            <div id="playerStats" class="player-stats-wrap hide">
+                <div class="blocks-clicked-wrap">
+                    <h3 class="blocks-clicked high-score-text">High Score:</h3>
+                    <p id="highScore" class="player-blocks-clicked high-score-text">0</p>
+                </div>
+                <div class="blocks-clicked-wrap">
+                    <h3 class="blocks-clicked">Blocks Bashed:</h3>
+                    <p id="blocksClicked" class="player-blocks-clicked">0</p>
+                </div>
+                <div class="blocks-clicked-wrap">
+                    <h3 class="blocks-clicked">Bombs Avoided:</h3>
+                    <p id="bombsAvoided" class="player-blocks-clicked">0</p>
+                </div>
+                <div class="blocks-clicked-wrap">
+                    <h3 class="blocks-clicked">Bombs Bashed:</h3>
+                    <p id="bombsClicked" class="player-blocks-clicked">0</p>
+                </div>
+                <div class="blocks-clicked-wrap">
+                    <h3 class="blocks-clicked">Golden Blocks Bashed:</h3>
+                    <p id="goldenClicked" class="player-blocks-clicked">0</p>
+                </div>
+                <div class="blocks-clicked-wrap">
+                    <h3 class="blocks-clicked">Golden Blocks Missed:</h3>
+                    <p id="goldenMissed" class="player-blocks-clicked">0</p>
+                </div>
+                <div class="blocks-clicked-wrap">
+                    <h3 class="blocks-clicked">Orange Blocks Bashed:</h3>
+                    <p id="orangeBlocksClicked" class="player-blocks-clicked">0</p>
+                </div>
+                <div class="blocks-clicked-wrap">
+                    <h3 class="blocks-clicked">Orange Blocks Missed:</h3>
+                    <p id="orangeBlocksMissed" class="player-blocks-clicked">0</p>
+                </div>
+                <div class="main-menu-btn-wrap">
+                    <button ontouchstart="reloadPage()" onclick="reloadPage()" class="main-menu-button"> Main Menu </button>
+                </div>
+            </div>
+            <div id="startMenu" class="start-menu-show">
+                <div class="start-menu-wrap">
+                    <h1 class="block-basher-text"> Block Basher</h1>
+                    <button ontouchstart="startGame()" onclick="startGame()" class="start-game start-menu-button"> Free Play </button>
+                    <!-- <button class="basher-levels start-menu-button"> Basher Levels</button> -->
+                    <button onclick="showPlayerStats()" class="player-stats start-menu-button"> Stats </button>
+                    <button onclick="showblockRules()" class="basher-rules start-menu-button"> Rules </button>
+                    <button onclick="loadingAnimation()" class="animation-show start-menu-button"> Loading Animation </button>
+                    <div id="loadingAnimation" class="cube-loading-animation hide">
+                        <div class="container">
+                            <div class="cube"></div>
+                            <div class="cube"></div>
+                            <div class="cube"></div>
+                            <div class="cube"></div>
+                            <div class="cube"></div>
+                            <div class="cube"></div>
+                            <div class="cube"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="blockBasherRules" class="rules-wrap hide">
+                <div class="redblock-rules-wrap">
+                    <!-- <h3 class="redblock-rules-text">Normal Blocks </h3> -->
+                    <div class="redBlock-container">
+                        <div class="falling-block-rules"></div>
+                        <div class="falling-block-rules blue"></div>
+                        <div class="falling-block-rules green"></div>
+                        <div class="falling-block-rules purple"></div>
+                    </div>
+                    <p class="redblock-rules-text-ex"> + 1 Point</p>
+                </div>
+                <div class="redblock-rules-wrap">
+                    <!-- <h3 class="redblock-rules-text">Bomb Blocks </h3> -->
+                    <div class="redBlock-container">
+                        <div class="x-block-rules"><p class="x-block-text">X</p></div>
+                    </div>
+                    <p class="redblock-rules-text-ex"> *AVOID* - Bomb Blocks add an X to the board when clicked </p>
+                </div>
+                <div class="redblock-rules-wrap">
+                    <!-- <h3 class="redblock-rules-text">Orange Blocks </h3> -->
+                    <div class="redBlock-container">
+                        <div class="orange-block-rules"></div>
+                    </div>
+                    <p class="redblock-rules-text-ex"> +3 Points </p>
+                </div>
+                <div class="redblock-rules-wrap">
+                    <!-- <h3 class="redblock-rules-text">Golden Blocks </h3> -->
+                    <div class="redBlock-container">
+                        <div class="golden-block-rules"></div>
+                    </div>
+                    <p class="redblock-rules-text-ex"> Clears all blocks on the board and adds them to your score, adds a multiplier the more you get. </p>
+                </div>
+                <button ontouchstart="reloadPage()" onclick="reloadPage()" class="main-menu-button"> Main Menu </button>
+            </div>
+            <div id="blockBasherfreePlay" class="game-container hide">
+                <div class="gameboard">
+                    <div class="scoreboard-wrap">
+                        <div class="scoreboard-border">
+                            <h4 class="player-score-text">Blocks Bashed:</h4>
+                            <p id="score" class="player-score">0</p>
+                        </div> 
+                        <div class="score-indicator">
+                            <p id="score-indicator-text" class="score-indicator-text hide">0</p>
+                        </div>                   
+                    </div>
+                    <div class="block-basher-wrap">
+                        <div id="x-counter" class="x-count-border hide">
+                            <h4 class="x-count">X</h4>
+                        </div>  
+                        <div class="hidden-blocks"></div>
+                        <div id="gameArea" class="game-area">
+                            <div class="block-falling-column-seperator"></div>
+                            <div id="columnOne" class="block-falling-column"></div>
+                            <div class="block-falling-column-seperator"></div>
+                            <div id="columnTwo" class="block-falling-column"></div>
+                            <div class="block-falling-column-seperator"></div>
+                            <div id="columnThree" class="block-falling-column"></div>
+                            <div class="block-falling-column-seperator"></div>
+                            <div id="columnFour" class="block-falling-column"></div>
+                            <div class="block-falling-column-seperator"></div>
+                            <div id="columnFive" class="block-falling-column"></div>
+                            <div class="block-falling-column-seperator"></div>
+                            <div id="columnSix" class="block-falling-column"></div>
+                            <div class="block-falling-column-seperator"></div>
+                        </div>
+                        <div class="hidden-blocks-bottom"></div>
+                        <div id="bottomBoardCollision" class="hidden-blocks-collision"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="gameOver" class="game-over-wrap hide">
+                <h3 class="game-over-text">Game Over</h3>
+                <p class="end-score-text" id="endScore">0</p>
+                <div class="main-menu-btn-wrap">
+                    <button onclick="reloadPage()" class="main-menu-button"> Main Menu </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="blockBasher.js"></script>
+</html>
