@@ -24,7 +24,7 @@ let clickedBlocksArray = [];
 let endGameCalled = false;
 let redSpeed = 6;
 let blueSpeed = 5.5;
-let orangeSpeed = 5;
+let orangeSpeed = 4.5;
 let xSpeed = 4;
 let goldenSpeed = 2.5;
 let singleGoldenBlockScore = 0;
@@ -52,6 +52,7 @@ function increaseBlockSpeed(){
     let score50 = false;
     let score150 = false;
     let score500 = false;
+    let score1000 = false;
 
     if(score === 50){
         score50 = true;
@@ -63,15 +64,14 @@ function increaseBlockSpeed(){
         score500 = true;
     }
 
+    if(score === 1000){
+        score1000 = true;
+    }
+
     if(score50 === true){
         redSpeed -= 0.1;
         blueSpeed -= 0.1;
         score50 = false;
-        // Red Blocks Spawn Speed
-        // t = Math.floor(t * 0.99);
-        // clearInterval(spawnBlocks);
-        // interval = setInterval(spawnBlocks, t);
-        // Blue Blocks Spawn Speed
         s = Math.floor(s * 0.99);
         clearInterval(spawnBlueBlocks);
         spawnInterval = setInterval(spawnBlueBlocks, s);
@@ -85,16 +85,11 @@ function increaseBlockSpeed(){
         blueSpeed -= 0.1;
         xSpeed -= 0.3;
         orangeSpeed -= 0.1;
-        // Red Blocks Spawn Speed
-        // t = Math.floor(t * 0.999);
-        // clearInterval(spawnBlocks);
-        // interval = setInterval(spawnBlocks, t);
-        // Blue Blocks Spawn Speed
         s = Math.floor(s * 0.99);
         clearInterval(spawnBlueBlocks);
         spawnInterval = setInterval(spawnBlueBlocks, s);
         // X Blocks Spawn Speed
-        x = Math.floor(x * 0.97);
+        x = Math.floor(x * 0.98);
         clearInterval(spawnXblocks);
         spawnXBombsInterval = setInterval(spawnXblocks, x);
         // Orange Blocks Spawn Speed
@@ -114,16 +109,11 @@ function increaseBlockSpeed(){
         xSpeed -= 0.1;
         goldenSpeed -= 0.1;
         orangeSpeed -= 0.1;
-        // Red Blocks Spawn Speed
-        // t = Math.floor(t * 0.999);
-        // clearInterval(spawnBlocks);
-        // interval = setInterval(spawnBlocks, t);
-        // Blue Blocks Spawn Speed
         s = Math.floor(s * 0.99);
         clearInterval(spawnBlueBlocks);
         spawnInterval = setInterval(spawnBlueBlocks, s);
         // X Blocks Spawn Speed
-        x = Math.floor(x * 0.97);
+        x = Math.floor(x * 0.98);
         clearInterval(spawnXblocks);
         spawnXBombsInterval = setInterval(spawnXblocks, x);
         // Golden Blocks Spawn Speed
@@ -131,6 +121,26 @@ function increaseBlockSpeed(){
         // clearInterval(spawnGoldenBlocks);
         // spawnGoldenBlocksInterval = setInterval(spawnGoldenBlocks, g);
         score500 = false;
+    }
+
+    if(score1000 === true){
+        redSpeed -= 0.1;
+        blueSpeed -= 0.1;
+        xSpeed -= 0.1;
+        goldenSpeed -= 0.1;
+        orangeSpeed -= 0.1;
+        s = Math.floor(s * 0.99);
+        clearInterval(spawnBlueBlocks);
+        spawnInterval = setInterval(spawnBlueBlocks, s);
+        // X Blocks Spawn Speed
+        x = Math.floor(x * 0.99);
+        clearInterval(spawnXblocks);
+        spawnXBombsInterval = setInterval(spawnXblocks, x);
+        // Golden Blocks Spawn Speed
+        // g = Math.floor(g * 0.99);
+        // clearInterval(spawnGoldenBlocks);
+        // spawnGoldenBlocksInterval = setInterval(spawnGoldenBlocks, g);
+        score1000 = false;
     }
     console.log(redSpeed);
     console.log(blueSpeed);
