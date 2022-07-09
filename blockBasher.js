@@ -881,6 +881,56 @@ function clickedBlocks(){
             // Maybe play sound Effect
         }; 
     }
+
+    // Mousedown for an PC game
+    for(let i = 0; i < blocksArray.length; i++){
+        blocksArray[i].onmousedown = function(){
+            if(blocksArray[i].classList.contains('golden-block') && blocksArray[i] != undefined){
+                blocksArray[i].remove();
+                clickedBlocksArray.push(blocksArray[i]);
+                goldenBlocksBashed += 1;
+                goldenBlockEffect();
+            }
+            if(blocksArray[i].classList.contains('orange-block') && blocksArray[i] != undefined){
+                blocksArray[i].remove();
+                clickedBlocksArray.push(blocksArray[i]);
+                score += 3;
+                orangeBlocksClicked++;
+                scoreIindicatorText.innerText = '+' + 3;
+                scoreBox.innerText = score;
+
+                scoreIindicatorText.classList.remove('hide');
+                scoreIindicatorText.classList.add('show');
+                setTimeout(() => {
+                    scoreIindicatorText.classList.remove('show');
+                    scoreIindicatorText.classList.add('hide');
+                    scoreIindicatorText.innerText = 0;
+                }, 1500);
+            }
+            else{
+                blocksArray[i].remove();
+                clickedBlocksArray.push(blocksArray[i]);
+                clickedBlocksScore()
+                blocksBashed += 1;
+            }
+            increaseBlockSpeed();
+        };  
+    }
+
+    for(let i = 0; i < xBlocksArray.length; i++){
+        xBlocksArray[i].onmousedown = function(){
+            xBlocksArray[i].remove();
+            clickedBlocksArray.push(xBlocksArray[i]);
+            blocksMissed ++;
+            missedBlocks();
+            gameArea.style.backgroundColor = "white";
+            setTimeout(() => {
+                gameArea.style.backgroundColor = 'rgb(57, 76, 92)'
+            }, 600);
+            bombsBashed += 1;
+            // Maybe play sound Effect
+        }; 
+    }
 }
 
 function goldenBlockEffect(){
