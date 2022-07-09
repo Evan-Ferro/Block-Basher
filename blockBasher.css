@@ -163,7 +163,7 @@ p{
     bottom: 0px;
     height: 72px;
     background-color: rgb(220, 220, 220);
-    z-index: 1;
+    z-index: 3;
     margin-left: 0.2rem;
     margin-top: 0.2rem;
     border-top: 3px solid rgb(132, 129, 129);

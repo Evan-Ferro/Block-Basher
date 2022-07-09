@@ -143,109 +143,6 @@ const columnFour = document.getElementById('columnFour');
 const columnFive = document.getElementById('columnFive');
 const columnSix = document.getElementById('columnSix');
 
-// function spawnBlocks(){
-
-//     if(paused === true || endGameCalled === true){
-//         return;
-//     }
-//     if(goldenBlockClicked === true){
-//         return
-//     }
-
-//     // Height the blocks are falling
-//     columnRect = columnOne.getBoundingClientRect();
-//     columnHeight = columnRect.height / 16 - 2;
-
-//     blockCollision();
-//     const columnSpawn = Math.floor(Math.random() * 6);
-    
-//     if(columnSpawn === 0){
-//         if(lastRow != 0){
-//             lastRow = 0;
-//             const fallingBlock = document.createElement('div');
-//             fallingBlock.setAttribute('id', 'blockCollision');
-//             fallingBlock.classList.add('falling-block');
-//             columnOne.append(fallingBlock);
-//             setTimeout(() => {
-//                 fallingBlock.style.transitionDuration = `${redSpeed}s`;
-//                 fallingBlock.style.transform = `translate(0rem, ${columnHeight}rem)`;
-//             }, 200);
-//             blocksArray.push(fallingBlock);
-//         }
-        
-//     }
-//     if(columnSpawn === 1){
-//         if(lastRow != 1){
-//             lastRow = 1;
-//             const fallingBlock = document.createElement('div');
-//             fallingBlock.setAttribute('id', 'blockCollision');
-//             fallingBlock.classList.add('falling-block');
-//             columnTwo.append(fallingBlock);
-//             setTimeout(() => {
-//                 fallingBlock.style.transitionDuration = `${redSpeed}s`;
-//                 fallingBlock.style.transform = `translate(0rem, ${columnHeight}rem)`;
-//             }, 200);   
-//             blocksArray.push(fallingBlock);
-//         }
-//     }
-//     if(columnSpawn === 2){
-//         if(lastRow != 2){
-//             lastRow = 2;
-//             const fallingBlock = document.createElement('div');
-//             fallingBlock.setAttribute('id', 'blockCollision');
-//             fallingBlock.classList.add('falling-block');
-//             columnThree.append(fallingBlock);
-//             setTimeout(() => {
-//                 fallingBlock.style.transitionDuration = `${redSpeed}s`;
-//                 fallingBlock.style.transform = `translate(0rem, ${columnHeight}rem)`;
-//             }, 200);
-//             blocksArray.push(fallingBlock);
-//         }
-//     }
-//     if(columnSpawn === 3){
-//         if(lastRow != 3){
-//             lastRow = 3;
-//             const fallingBlock = document.createElement('div');
-//             fallingBlock.setAttribute('id', 'blockCollision');
-//             fallingBlock.classList.add('falling-block');
-//             columnFour.append(fallingBlock);
-//             setTimeout(() => {
-//                 fallingBlock.style.transitionDuration = `${redSpeed}s`;
-//                 fallingBlock.style.transform = `translate(0rem, ${columnHeight}rem)`;
-//             }, 200);
-//             blocksArray.push(fallingBlock);
-//         }  
-//     }
-//     if(columnSpawn === 4){
-//         if(lastRow != 4){
-//             lastRow = 4;
-//             const fallingBlock = document.createElement('div');
-//             fallingBlock.setAttribute('id', 'blockCollision');
-//             fallingBlock.classList.add('falling-block');
-//             columnFive.append(fallingBlock);
-//             setTimeout(() => {
-//                 fallingBlock.style.transitionDuration = `${redSpeed}s`;
-//                 fallingBlock.style.transform = `translate(0rem, ${columnHeight}rem)`;
-//             }, 200);
-//             blocksArray.push(fallingBlock);
-//         }
-//     }
-//     if(columnSpawn === 5){
-//         if(lastRow != 5){
-//             lastRow = 5;
-//             const fallingBlock = document.createElement('div');
-//             fallingBlock.setAttribute('id', 'blockCollision');
-//             fallingBlock.classList.add('falling-block');
-//             columnSix.append(fallingBlock);
-//             setTimeout(() => {
-//                 fallingBlock.style.transitionDuration = `${redSpeed}s`;
-//                 fallingBlock.style.transform = `translate(0rem, ${columnHeight}rem)`;
-//             }, 200);
-//             blocksArray.push(fallingBlock);
-//         }
-//     }
-// }
-
 function spawnBlueBlocks(){
 
     if(paused === true || endGameCalled === true){
@@ -1041,13 +938,13 @@ function getPlayerStats(){
         allOrangeBlocksMissed += allScores[i].orangeBlocksMissed;
 
         highScoreText.innerText = `${allScores[0].score}`
-        bombsAvoidedText.innerText = allBombsAvoided;
-        bombsClickedText.innerText = allBombsBashed;
-        blocksBashedText.innerText = allBlocks;
-        goldenClickedText.innerText = allGoldenBlocks;
-        goldenMissedText.innerText = allGoldenBlocksMissed;
-        orangeBlocksClickedText.innerText = allOrangeBlocks;
-        orangeBlocksMissedText.innerText = allOrangeBlocksMissed;
+        bombsAvoidedText.innerText = `${allBombsAvoided}`
+        bombsClickedText.innerText = `${allBombsBashed}`
+        blocksBashedText.innerText = `${allBlocks}`
+        goldenClickedText.innerText = `${allGoldenBlocks}`
+        goldenMissedText.innerText = `${allGoldenBlocksMissed}`
+        orangeBlocksClickedText.innerText = `${allOrangeBlocks}`
+        orangeBlocksMissedText.innerText = `${allOrangeBlocksMissed}`
     }
     console.log(allScores);
 }
